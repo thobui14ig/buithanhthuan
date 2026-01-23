@@ -38,6 +38,7 @@ export default function RequestForm() {
       </h2>
 
       <form className="space-y-5" onSubmit={handleSubmit}>
+        {/* Tên */}
         <div>
           <label className="block mb-1 text-sm font-semibold">
             Tên người yêu cầu
@@ -50,6 +51,7 @@ export default function RequestForm() {
           />
         </div>
 
+        {/* Nội dung */}
         <div>
           <label className="block mb-1 text-sm font-semibold">
             Nội dung yêu cầu
@@ -63,25 +65,46 @@ export default function RequestForm() {
           />
         </div>
 
+        {/* Số tiền */}
         <div>
           <label className="block mb-1 text-sm font-semibold">
-            Số tiền ủng hộ <span className="text-xs text-pink-500">(tuỳ tâm 💖)</span>
+            Số tiền ủng hộ{' '}
+            <span className="text-xs text-pink-500">(tuỳ tâm 💖)</span>
           </label>
           <input
             type="number"
             value={amount}
-            onChange={(e) => setAmount(Number(e.target.value))}
+            onChange={(e) =>
+              setAmount(e.target.value === '' ? '' : Number(e.target.value))
+            }
             className="w-full rounded-xl border p-3 focus:ring-2 focus:ring-pink-500"
           />
         </div>
 
         <button
           disabled={loading}
-          className="w-full rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 py-4 font-bold text-white"
+          className="w-full rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 py-4 font-bold text-white disabled:opacity-60"
         >
           {loading ? '⏳ Đang gửi...' : '💖 Gửi yêu cầu & Ủng hộ'}
         </button>
       </form>
+
+      {/* ===== QR ỦNG HỘ ===== */}
+      <div className="mt-8 text-center">
+        <p className="text-sm text-gray-600 mb-3">
+          📌 Bạn có thể ủng hộ qua QR ngân hàng bên dưới
+        </p>
+
+        <img
+          src="/qar.jpg"   // hoặc /qar.jpg nếu file bạn đặt vậy
+          alt="QR ủng hộ"
+          className="mx-auto w-48 rounded-2xl shadow-lg border"
+        />
+
+        <p className="text-sm text-gray-500 mt-3">
+          Cảm ơn bạn đã ủng hộ 💕
+        </p>
+      </div>
     </div>
   );
 }
