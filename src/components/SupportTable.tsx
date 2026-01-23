@@ -11,14 +11,14 @@ export default function SupportTable() {
   return (
     <div className="bg-white/95 rounded-3xl shadow-2xl p-8">
       <h3 className="text-2xl font-bold mb-6 text-center">
-        💝 Danh sách người đã ủng hộ
+        💝 Danh sách người đã yêu cầu
       </h3>
 
       {loading && <p className="text-center">Đang tải...</p>}
 
       {!loading && data.length === 0 && (
         <p className="text-center text-gray-500">
-          Chưa có ai ủng hộ 🥹
+          Chưa có ai yêu cầu 🥹
         </p>
       )}
 
