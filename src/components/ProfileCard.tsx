@@ -24,7 +24,7 @@ export default function ProfileCard() {
       </p>
 
       <a
-        href="https://www.tiktok.com"
+        href="https://www.tiktok.com/@buithanhthuan1993"
         target="_blank"
         className="mt-6 rounded-full bg-pink-500 px-6 py-3 text-white font-semibold shadow-lg hover:bg-pink-600 transition"
       >
