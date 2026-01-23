@@ -12,7 +12,7 @@ export default function SupportTable() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://thotool.com/user-support')
+    fetch('https://thotool.com/api/user-support')
       .then((res) => res.json())
       .then((res) => {
         setData(res);

@@ -12,7 +12,7 @@ export default function RequestForm() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://thotool.com/insert-user-support", {
+      const res = await fetch("https://thotool.com/api/insert-user-support", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
