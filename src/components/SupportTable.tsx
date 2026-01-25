@@ -29,7 +29,6 @@ export default function SupportTable() {
               <tr>
                 <th className="px-4 py-3 text-left">Tên</th>
                 <th className="px-4 py-3 text-left">Nội dung</th>
-                <th className="px-4 py-3 text-right">Ủng hộ</th>
               </tr>
             </thead>
             <tbody className="divide-y">
@@ -37,9 +36,6 @@ export default function SupportTable() {
                 <tr key={item.id} className="hover:bg-pink-50">
                   <td className="px-4 py-3 font-semibold">{item.name}</td>
                   <td className="px-4 py-3">{item.content}</td>
-                  <td className="px-4 py-3 text-right text-pink-600 font-bold">
-                    {item.amount.toLocaleString()} VNĐ
-                  </td>
                 </tr>
               ))}
             </tbody>

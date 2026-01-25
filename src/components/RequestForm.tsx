@@ -66,7 +66,7 @@ export default function RequestForm() {
         </div>
 
         {/* Số tiền */}
-        <div>
+        {/* <div>
           <label className="block mb-1 text-sm font-semibold">
             Số tiền ủng hộ{' '}
             <span className="text-xs text-pink-500">(tuỳ tâm 💖)</span>
@@ -79,18 +79,18 @@ export default function RequestForm() {
             }
             className="w-full rounded-xl border p-3 focus:ring-2 focus:ring-pink-500"
           />
-        </div>
+        </div> */}
 
         <button
           disabled={loading}
           className="w-full rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 py-4 font-bold text-white disabled:opacity-60"
         >
-          {loading ? '⏳ Đang gửi...' : '💖 Gửi yêu cầu & Ủng hộ'}
+          {loading ? '⏳ Đang gửi...' : '💖 Gửi yêu cầu'}
         </button>
       </form>
 
       {/* ===== QR ỦNG HỘ ===== */}
-      <div className="mt-8 text-center">
+      {/* <div className="mt-8 text-center">
         <p className="text-sm text-gray-600 mb-3">
           📌 Bạn có thể ủng hộ qua QR ngân hàng bên dưới
         </p>
@@ -104,7 +104,7 @@ export default function RequestForm() {
         <p className="text-sm text-gray-500 mt-3">
           Cảm ơn bạn đã ủng hộ 💕
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
