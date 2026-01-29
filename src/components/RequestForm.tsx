@@ -85,7 +85,7 @@ export default function RequestForm() {
           disabled={loading}
           className="w-full rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 py-4 font-bold text-white disabled:opacity-60"
         >
-          {loading ? '⏳ Đang gửi...' : '💖 Gửi yêu cầu'}
+          {loading ? '⏳ Đang gửi...' : '💖 Gửi yêu cầu & Ủng hộ'}
         </button>
       </form>
 
