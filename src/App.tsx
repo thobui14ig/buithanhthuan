@@ -20,8 +20,8 @@ export default function App() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <SupportTable />
           <SupportQR />
+          <SupportTable />
         </div>
       </div>
 
