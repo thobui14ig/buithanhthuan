@@ -10,7 +10,7 @@ const SupportQR = () => {
       className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-8 shadow-xl border border-pink-100/50 backdrop-blur-sm"
     >
       <div className="text-center">
-        <h3 className="text-xl font-bold text-gray-800 mb-3">Ủng hộ tôi! Mọi sự đóng góp sẽ giúp tôi tự tin làm thêm nhiều video cover hay nhé!</h3>
+        <h3 className="text-xl font-bold text-gray-800 mb-3">Nếu yêu mến hãy ủng hộ tôi ly cafe nhé!</h3>
         
         <motion.img
           initial={{ y: 10 }}
@@ -22,7 +22,7 @@ const SupportQR = () => {
         />
         
         <p className="text-sm text-pink-500 font-medium mt-4 animate-pulse">
-          Cảm ơn bạn đã ủng hộ 💕
+          Cảm ơn bạn 💕
         </p>
       </div>
     </motion.div>
