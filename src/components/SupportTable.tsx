@@ -28,6 +28,7 @@ export default function SupportTable() {
             <thead className="bg-pink-500 text-white">
               <tr>
                 <th className="px-4 py-3 text-left">Tên</th>
+                <th className="px-4 py-3 text-left">Ủng hộ</th>
                 <th className="px-4 py-3 text-left">Nội dung</th>
               </tr>
             </thead>
@@ -35,6 +36,7 @@ export default function SupportTable() {
               {data.map((item) => (
                 <tr key={item.id} className="hover:bg-pink-50">
                   <td className="px-4 py-3 font-semibold">{item.name}</td>
+                  <td className="px-4 py-3">{item.amount}đ</td>
                   <td className="px-4 py-3">{item.content}</td>
                 </tr>
               ))}

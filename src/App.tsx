@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
+import Contact from './components/Contact';
 import ProfileCard from './components/ProfileCard';
 import RequestForm from './components/RequestForm';
 import SupportTable from './components/SupportTable';
-import SupportQR from './components/SupportQR';
-import Contact from './components/Contact';
 
 export default function App() {
   return (
@@ -20,7 +19,7 @@ export default function App() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <SupportQR />
+          {/* <SupportQR /> */}
           <SupportTable />
         </div>
       </div>
