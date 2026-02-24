@@ -66,7 +66,7 @@ export default function RequestForm() {
         </div>
 
           {/* Số tiền */}
-        <div className="relative">
+        {/* <div className="relative">
           <label className="block mb-1 text-sm font-semibold">
             Gửi tặng tôi ly cafe{' '}
             <span className="text-xs text-pink-500">(tuỳ tâm 💖)</span>
@@ -89,7 +89,7 @@ export default function RequestForm() {
               ₫
             </span>
           </div>
-        </div>
+        </div> */}
         <button
           disabled={loading}
           className="w-full rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 py-4 font-bold text-white disabled:opacity-60"
@@ -99,7 +99,7 @@ export default function RequestForm() {
       </form>
 
       {/* ===== QR ỦNG HỘ ===== */}
-      <div className="mt-8 text-center">
+      {/* <div className="mt-8 text-center">
         <p className="text-sm text-gray-600 mb-3">
           📌 Bạn có thể ủng hộ tôi ly cafe qua QR bên dưới
         </p>
@@ -113,7 +113,7 @@ export default function RequestForm() {
         <p className="text-sm text-gray-500 mt-3">
           Cảm ơn bạn đã ủng hộ 💕
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
