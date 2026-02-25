@@ -47,7 +47,7 @@ export default function ProfileCard() {
               href="https://t.me/thobui1996"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-16 h-16 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-2xl flex items-center justify-center transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 animate-pulse group relative"
+            className="mr-2 w-16 h-16 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-2xl flex items-center justify-center transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 animate-pulse group relative"
             aria-label="Chat Telegram"
             >
               <Send className="w-8 h-8" />
@@ -55,7 +55,20 @@ export default function ProfileCard() {
                   Telegram
               </span>
             </a>
+            <a
+              href="https://www.facebook.com/bui.thanhthuan39948856"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative w-16 h-16 bg-gradient-to-r from-[#1877F2] to-[#1977F3] rounded-3xl shadow-2xl hover:scale-125 hover:rotate-12 hover:shadow-blue-500/25 transition-all duration-500 border-4 border-white/20 backdrop-blur-sm flex items-center justify-center"
+              aria-label="Facebook Bùi Thanh Thuận"
+            >
+              <svg className="w-7 h-7 text-white drop-shadow-lg group-hover:animate-bounce" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12a10 10 0 10-11.6 9.9v-7h-2v-2.9h2V9.7c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2v1.5h2.3L15.9 15h-2v7A10 10 0 0022 12z" />
+              </svg>
+              <div className="absolute -inset-2 bg-gradient-to-r from-pink-500/30 to-purple-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </a>
         </div>
+        <span className="text-3xl font-bold mb-2 mt-2">Hoặc gọi 0898456907</span>
     </div>
   );
 }
