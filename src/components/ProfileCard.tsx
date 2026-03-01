@@ -27,7 +27,7 @@ export default function ProfileCard() {
         <span className="text-3xl font-bold mb-2 mt-2">Booking</span>
         <div className="flex">
             <a
-              href="https://zalo.me/0898456907"
+              href="https://zalo.me/0368719874"
               target="_blank"
               rel="noopener noreferrer"
               className="mr-2 w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 animate-bounce-slow group relative"
@@ -44,19 +44,7 @@ export default function ProfileCard() {
             </a>
 
             <a
-              href="https://t.me/thobui1996"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mr-2 w-16 h-16 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-2xl flex items-center justify-center transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 animate-pulse group relative"
-            aria-label="Chat Telegram"
-            >
-              <Send className="w-8 h-8" />
-              <span className="absolute -top-10 left-0 bg-blue-600 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg">
-                  Telegram
-              </span>
-            </a>
-            <a
-              href="https://www.facebook.com/bui.thanhthuan39948856"
+              href="https://www.facebook.com/bui.thuan.39948856"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative w-16 h-16 bg-gradient-to-r from-[#1877F2] to-[#1977F3] rounded-3xl shadow-2xl hover:scale-125 hover:rotate-12 hover:shadow-blue-500/25 transition-all duration-500 border-4 border-white/20 backdrop-blur-sm flex items-center justify-center"
