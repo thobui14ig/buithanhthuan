@@ -23,7 +23,6 @@ export default function ProfileCard() {
       </p>
 
       {/* Social buttons */}
-        <span className="text-3xl font-bold mb-2 mt-2">Booking</span>
         <div className="flex">
             <a
               href="https://zalo.me/0368719874"
@@ -67,6 +66,8 @@ export default function ProfileCard() {
                 <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-red-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </a>
         </div>
+        <span className="text-3xl font-bold mb-2 mt-2">Booking qua Fb/Zalo</span>
+
         <span className="text-3xl font-bold mb-2 mt-2">Hoặc gọi 0898456907</span>
     </div>
   );
