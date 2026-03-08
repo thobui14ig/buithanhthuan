@@ -54,6 +54,18 @@ export default function ProfileCard() {
               </svg>
               <div className="absolute -inset-2 bg-gradient-to-r from-pink-500/30 to-purple-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </a>
+            <a
+                href="https://www.youtube.com/@buithanhthuan993" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-2 group relative w-16 h-16 bg-gradient-to-r from-[#FF0000] via-[#FF5E00] to-[#FF0000] rounded-3xl shadow-2xl hover:scale-125 hover:rotate-12 hover:shadow-red-500/25 transition-all duration-500 border-4 border-white/20 backdrop-blur-sm flex items-center justify-center"
+                aria-label="YouTube Channel"
+              >
+                <svg className="w-8 h-8 text-white drop-shadow-lg group-hover:animate-bounce" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-red-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </a>
         </div>
         <span className="text-3xl font-bold mb-2 mt-2">Hoặc gọi 0898456907</span>
     </div>
