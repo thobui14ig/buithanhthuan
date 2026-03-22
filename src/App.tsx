@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import ProfileCard from './components/ProfileCard';
 import RequestForm from './components/RequestForm';
+import HoneyShop from './components/Shop';
 import SupportQR from './components/SupportQR';
 import SupportTable from './components/SupportTable';
 
@@ -24,6 +25,9 @@ export default function App() {
           <SupportTable />
         </div>
       </div>
-    </div>
+        <HoneyShop/>
+      </div>
+
+    
   );
 }

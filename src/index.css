@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-tabs .ant-tabs-nav {
+  color: white !important;
+}
+
+.custom-tabs .ant-tabs-tab {
+  color: white !important; /* Chữ trắng cho tất cả tabs */
+  font-weight: 500 !important; /* Font bold */
+  font-size: 16px !important; /* Cỡ chữ to hơn (20px) */
+}
+
+
+
