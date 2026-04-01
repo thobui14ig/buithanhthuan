@@ -68,8 +68,7 @@ export default function ProfileCard() {
         </div>
         <span className="text-3xl font-bold mb-2 mt-2">Booking qua Fb/Zalo</span>
 
-        <span className="text-2xl font-bold mb-2 mt-2">Vào nhóm Fan club để trò chuyện và nhận lịch livestream từ tôi</span>
-        <a href="https://zalo.me/g/ouofxjwamp5cpzniiw6y" className="text-2xl font-bold text-blue-600">tại đây </a>
+        <p className="text-2xl font-bold">Hoặc gọi 0898456907 </p>
     </div>
   );
 }
