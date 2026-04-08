@@ -449,7 +449,7 @@ export default function App() {
                   animate={{ scale: 1, opacity: 1 }}
                   className="text-sm text-yellow-300 font-bold bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-3 py-1 rounded-full shadow-lg border border-yellow-400/30"
                 >
-                  {formData.type === 'birthday' ? '150/video' : formData.type === 'livestream' ? '50k/bài' : ''}
+                  {formData.type === 'birthday' ? '150k/video' : formData.type === 'livestream' ? '50k/bài' : ''}
                 </motion.span>
               </label>
               
