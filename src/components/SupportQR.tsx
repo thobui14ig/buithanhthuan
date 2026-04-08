@@ -11,10 +11,12 @@ const SupportQR = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-8 shadow-xl border border-pink-100/50 backdrop-blur-sm"
+        className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-8 lg:p-12 shadow-xl border border-pink-100/50 backdrop-blur-sm"
       >
         <div className="text-center">
-          <h3 className="text-xl font-bold text-gray-800 mb-3">Nếu yêu mến hãy ủng hộ tôi ly cafe nhé!</h3>
+          <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-6 lg:mb-8 leading-tight">
+            Nếu yêu mến hãy ủng hộ tôi ly cafe nhé!
+          </h3>
           
           <motion.img
             initial={{ y: 10 }}
@@ -22,15 +24,21 @@ const SupportQR = () => {
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             src="/qar1.png"
             alt="QR ủng hộ ngân hàng"
-            className="mx-auto w-48 h-48 object-contain rounded-2xl shadow-2xl border-4 border-white/50 hover:shadow-3xl transition-all duration-300 cursor-pointer active:scale-[1.02]"
+            className="mx-auto w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain rounded-3xl shadow-2xl border-8 border-white/60 hover:shadow-3xl hover:border-pink-200/70 transition-all duration-500 cursor-pointer active:scale-[0.98] hover:rotate-3"
             onClick={() => setIsQRModalOpen(true)}
           />
           
-          <p className="text-sm text-pink-500 font-medium mt-4 animate-pulse">
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-lg lg:text-xl text-pink-500 font-bold mt-6 lg:mt-8 animate-pulse tracking-wide drop-shadow-sm"
+          >
             Cảm ơn bạn 💕
-          </p>
+          </motion.p>
         </div>
       </motion.div>
+
 
       {/* QR Modal Fullscreen */}
       <AnimatePresence>

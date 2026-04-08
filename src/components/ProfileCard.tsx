@@ -17,9 +17,7 @@ export default function ProfileCard() {
       </p>
 
       <p className="text-gray-700 leading-relaxed">
-        Xin chào! Mình là Thuận – TikToker chuyên làm video ca hát, cover theo yêu
-        cầu và gửi tặng những bài hát cho bạn hoặc người bạn yêu
-        thương.
+        Xin chào! Mình là Thuận – Mình nhận hát theo yêu cầu trên livestream, lên video hát chúc mừng sinh nhật, mọi người ủng hộ mình nhé.
       </p>
 
       {/* Social buttons */}
