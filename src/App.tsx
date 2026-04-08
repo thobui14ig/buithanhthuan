@@ -454,7 +454,7 @@ export default function App() {
               
               {/* Thêm text động lực PHÍA DƯỚI label */}
               <p className="text-yellow-200/90 text-xs lg:text-sm font-medium mb-3 italic bg-gradient-to-r from-yellow-400/10 to-pink-400/10 px-3 py-2 rounded-xl border border-yellow-300/30 shadow-md">
-                Ai cũng cần có công việc, mọi người hãy ủng hộ em 💕
+                Ai cũng cần có công việc, không thương xin đừng buông lời cay đắng 💕
               </p>
               
               <input
