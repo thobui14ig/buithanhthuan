@@ -242,6 +242,7 @@ export default function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          id="request-form"
           className="bg-white/20 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/30"
         >
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Yêu Cầu Bài Hát 🎤</h2>

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 
 export default function ProfileCard() {
   return (
@@ -64,9 +65,21 @@ export default function ProfileCard() {
                 <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-red-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </a>
         </div>
-        <span className="text-3xl font-bold mb-2 mt-2">Booking qua Fb/Zalo</span>
-
-        <p className="text-2xl font-bold">Hoặc gọi 0898456907 </p>
+        <motion.button
+          onClick={() => {
+            document.getElementById('request-form')?.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.96 }}
+          className="mt-2 group relative bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 text-white font-black text-2xl lg:text-3xl px-12 lg:px-20 py-6 lg:py-8 rounded-3xl shadow-2xl hover:shadow-3xl border-4 border-white/20 hover:border-white/40 transition-all duration-500 overflow-hidden"
+        >
+          <span className="relative z-10 flex items-center gap-3">
+            Yêu Cầu Ngay
+          </span>
+        </motion.button>
     </div>
   );
 }
