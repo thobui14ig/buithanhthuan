@@ -145,7 +145,7 @@ export default function App() {
     
     // 🔥 AUTO-FILL AMOUNT khi chọn TYPE
     if (name === 'type' && (value === 'birthday' || value === 'livestream')) {
-      const autoAmount = value === 'birthday' ? '200000' : '50000';
+      const autoAmount = value === 'birthday' ? '150000' : '50000';
       setFormData({ 
         ...formData, 
         [name]: value,
@@ -448,7 +448,7 @@ export default function App() {
                   animate={{ scale: 1, opacity: 1 }}
                   className="text-sm text-yellow-300 font-bold bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-3 py-1 rounded-full shadow-lg border border-yellow-400/30"
                 >
-                  {formData.type === 'birthday' ? '200k/video' : formData.type === 'livestream' ? '50k/bài' : ''}
+                  {formData.type === 'birthday' ? '150/video' : formData.type === 'livestream' ? '50k/bài' : ''}
                 </motion.span>
               </label>
               
@@ -469,7 +469,7 @@ export default function App() {
                     ? 'border-red-400 ring-4 ring-red-200/50 shadow-red-500/20' 
                     : 'border-white/40 focus:ring-white/50 hover:border-white/60'
                 } text-white placeholder-yellow-200/70 focus:outline-none focus:ring-4 transition-all duration-500 pr-12`}
-                placeholder={formData.type === 'birthday' ? '200000' : formData.type === 'livestream' ? '50000' : ''}
+                placeholder={formData.type === 'birthday' ? '150000' : formData.type === 'livestream' ? '50000' : ''}
               />
               
               {errors.amount && (
