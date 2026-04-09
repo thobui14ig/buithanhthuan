@@ -238,273 +238,274 @@ export default function App() {
           <SupportQR />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          id="request-form"
-          className="bg-white/20 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/30"
-        >
-          <h2 className="text-3xl font-bold text-white mb-6 text-center">Yêu Cầu Bài Hát 🎤</h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name */}
-            <div>
-              <label className="block text-white font-semibold mb-2">Tên của bạn *</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
-                  errors.name 
-                    ? 'border-red-400 ring-4 ring-red-200/50' 
-                    : 'border-white/40 focus:ring-white/50'
-                } text-white placeholder-white/70 focus:outline-none focus:ring-4 transition-all duration-300`}
-                placeholder="Nhập tên bạn..."
-              />
-              {errors.name && (
-                <p className="text-red-300 text-sm mt-1 font-medium">{errors.name}</p>
-              )}
-            </div>
-
-            {/* Phone */}
-            <div>
-              <label className="block text-white font-semibold mb-2">Số điện thoại *</label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
-                  errors.phone 
-                    ? 'border-red-400 ring-4 ring-red-200/50' 
-                    : 'border-white/40 focus:ring-white/50'
-                } text-white placeholder-white/70 focus:outline-none focus:ring-4 transition-all duration-300`}
-                placeholder="VD: 0987654321"
-              />
-              {errors.phone && (
-                <p className="text-red-300 text-sm mt-1 font-medium">{errors.phone}</p>
-              )}
-            </div>
-
-            {/* Song */}
-            <div>
-              <label className="block text-white font-semibold mb-2">Bài hát yêu cầu *</label>
-              <input
-                type="text"
-                name="song"
-                value={formData.song}
-                onChange={handleChange}
-                className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
-                  errors.song 
-                    ? 'border-red-400 ring-4 ring-red-200/50' 
-                    : 'border-white/40 focus:ring-white/50'
-                } text-white placeholder-white/70 focus:outline-none focus:ring-4 transition-all duration-300`}
-                placeholder="VD: Em ơi hà nội phố"
-              />
-              {errors.song && (
-                <p className="text-red-300 text-sm mt-1 font-medium">{errors.song}</p>
-              )}
-            </div>
-
-            {/* Content */}
-            <div>
-              <label className="block text-white font-semibold mb-2">Nội dung yêu cầu *</label>
-              <textarea
-                name="content"
-                value={formData.content}
-                onChange={handleChange}
-                rows={3}
-                className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
-                  errors.content 
-                    ? 'border-red-400 ring-4 ring-red-200/50' 
-                    : 'border-white/40 focus:ring-white/50'
-                } text-white placeholder-white/70 focus:outline-none focus:ring-4 transition-all duration-300 resize-vertical`}
-                placeholder="Tin nhắn đặc biệt dành cho người được hát..."
-              />
-              {errors.content && (
-                <p className="text-red-300 text-sm mt-1 font-medium">{errors.content}</p>
-              )}
-            </div>
-
-            {/* Type */}
-            <div>
-              <label className="block text-white font-semibold mb-2">Loại yêu cầu *</label>
-              <select
-                name="type"
-                value={formData.type}
-                onChange={handleChange}
-                className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
-                  errors.type 
-                    ? 'border-red-400 ring-4 ring-red-200/50' 
-                    : 'border-white/40 focus:ring-white/50'
-                } text-white focus:outline-none focus:ring-4 transition-all duration-300`}
-              >
-                <option value="">Chọn loại...</option>
-                <option value="birthday">Lên video hát mừng sinh nhật</option>
-                <option value="livestream">Hát trên livestream</option>
-              </select>
-              {errors.type && (
-                <p className="text-red-300 text-sm mt-1 font-medium">{errors.type}</p>
-              )}
-            </div>
-
-            {/* Conditional Fields */}
-            <AnimatePresence mode="wait">
-              {formData.type === 'birthday' && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
-                  <label className="block text-white font-semibold mb-2">Ngày hát sinh nhật *</label>
-                  <input
-                    type="date"
-                    name="birthdayDate"
-                    value={formData.birthdayDate}
-                    onChange={handleChange}
-                    className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
-                      errors.birthdayDate 
-                        ? 'border-red-400 ring-4 ring-red-200/50' 
-                        : 'border-white/40 focus:ring-white/50'
-                    } text-white focus:outline-none focus:ring-4 transition-all duration-300`}
-                  />
-                  {errors.birthdayDate && (
-                    <p className="text-red-300 text-sm mt-1 font-medium">{errors.birthdayDate}</p>
-                  )}
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait">
-              {formData.type === 'livestream' && (
-                <>
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <label className="block text-white font-semibold mb-2">Ngày livestream *</label>
-                    <input
-                      type="date"
-                      name="livestreamDate"
-                      value={formData.livestreamDate}
-                      onChange={handleChange}
-                      className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
-                        errors.livestreamDate 
-                          ? 'border-red-400 ring-4 ring-red-200/50' 
-                          : 'border-white/40 focus:ring-white/50'
-                      } text-white focus:outline-none focus:ring-4 transition-all duration-300`}
-                    />
-                    {errors.livestreamDate && (
-                      <p className="text-red-300 text-sm mt-1 font-medium">{errors.livestreamDate}</p>
-                    )}
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                    className="overflow-hidden"
-                  >
-                    <label className="block text-white font-semibold mb-2">Giờ livestream (20h-22h) *</label>
-                    <select
-                      name="livestreamTime"
-                      value={formData.livestreamTime}
-                      onChange={handleChange}
-                      className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
-                        errors.livestreamTime 
-                          ? 'border-red-400 ring-4 ring-red-200/50' 
-                          : 'border-white/40 focus:ring-white/50'
-                      } text-white focus:outline-none focus:ring-4 transition-all duration-300`}
-                    >
-                      <option value="">Chọn khung giờ...</option>
-                      {timeSlots.map((time) => (
-                        <option key={time} value={time}>
-                          {time}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.livestreamTime && (
-                      <p className="text-red-300 text-sm mt-1 font-medium">{errors.livestreamTime}</p>
-                    )}
-                    <p className="text-white/70 text-sm mt-1">Chỉ hát theo lịch 20:00, 20:15, 20:30, 20:45, 21:00, 21:15, 21:30, 21:45, 22:00</p>
-                  </motion.div>
-                </>
-              )}
-            </AnimatePresence>
-
-            {/* Amount */}
-            <div>
-              <label className="block text-white font-semibold mb-2 flex items-center gap-3">
-                Số tiền tặng (VNĐ)
-                <motion.span 
-                  key={formData.type}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="text-sm text-yellow-300 font-bold bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-3 py-1 rounded-full shadow-lg border border-yellow-400/30"
-                >
-                  {formData.type === 'birthday' ? '150k/video' : formData.type === 'livestream' ? '50k/bài' : ''}
-                </motion.span>
-              </label>
-              
-              {/* Thêm text động lực PHÍA DƯỚI label */}
-              <p className="text-yellow-200/90 text-xs lg:text-sm font-medium mb-3 italic bg-gradient-to-r from-yellow-400/10 to-pink-400/10 px-3 py-2 rounded-xl border border-yellow-300/30 shadow-md">
-                Ai cũng cần có công việc, không thương xin đừng buông lời cay đắng 💕
-              </p>
-              
-              <input
-                type="number"
-                name="amount"
-                value={formData.amount}
-                onChange={handleChange}
-                min="0"
-                step="1000"
-                className={`w-full p-5 rounded-xl bg-white/30 backdrop-blur-md border-2 text-lg font-semibold ${
-                  errors.amount 
-                    ? 'border-red-400 ring-4 ring-red-200/50 shadow-red-500/20' 
-                    : 'border-white/40 focus:ring-white/50 hover:border-white/60'
-                } text-white placeholder-yellow-200/70 focus:outline-none focus:ring-4 transition-all duration-500 pr-12`}
-                placeholder={formData.type === 'birthday' ? '150000' : formData.type === 'livestream' ? '50000' : ''}
-              />
-              
-              {errors.amount && (
-                <motion.p 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-red-300 text-sm mt-1 font-semibold bg-red-500/20 px-4 py-2 rounded-xl border border-red-400/50 shadow-lg"
-                >
-                  {errors.amount}
-                </motion.p>
-              )}
-            </div>
-
-
-
-            <motion.button
-              type="submit"
-              disabled={isSubmitting}
-              whileHover={isSubmitting ? {} : { scale: 1.05 }}
-              whileTap={isSubmitting ? {} : { scale: 0.95 }}
-              className="w-full bg-gradient-to-r from-pink-400 to-purple-500 text-white font-bold py-6 px-8 rounded-2xl text-xl shadow-2xl hover:shadow-3xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 uppercase tracking-wide flex items-center justify-center gap-2"
-            >
-              {isSubmitting ? (
-                <>
-                  <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Đang gửi...
-                </>
-              ) : (
-                'Gửi Yêu Cầu 🎵'
-              )}
-            </motion.button>
-          </form>
-        </motion.div>
       </div>
     </div>
   );
 }
+
+        // <motion.div
+        //   initial={{ opacity: 0, y: 20 }}
+        //   animate={{ opacity: 1, y: 0 }}
+        //   transition={{ duration: 0.8, delay: 0.2 }}
+        //   id="request-form"
+        //   className="bg-white/20 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/30"
+        // >
+        //   <h2 className="text-3xl font-bold text-white mb-6 text-center">Yêu Cầu Bài Hát 🎤</h2>
+        //   <form onSubmit={handleSubmit} className="space-y-6">
+        //     {/* Name */}
+        //     <div>
+        //       <label className="block text-white font-semibold mb-2">Tên của bạn *</label>
+        //       <input
+        //         type="text"
+        //         name="name"
+        //         value={formData.name}
+        //         onChange={handleChange}
+        //         className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
+        //           errors.name 
+        //             ? 'border-red-400 ring-4 ring-red-200/50' 
+        //             : 'border-white/40 focus:ring-white/50'
+        //         } text-white placeholder-white/70 focus:outline-none focus:ring-4 transition-all duration-300`}
+        //         placeholder="Nhập tên bạn..."
+        //       />
+        //       {errors.name && (
+        //         <p className="text-red-300 text-sm mt-1 font-medium">{errors.name}</p>
+        //       )}
+        //     </div>
+
+        //     {/* Phone */}
+        //     <div>
+        //       <label className="block text-white font-semibold mb-2">Số điện thoại *</label>
+        //       <input
+        //         type="tel"
+        //         name="phone"
+        //         value={formData.phone}
+        //         onChange={handleChange}
+        //         className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
+        //           errors.phone 
+        //             ? 'border-red-400 ring-4 ring-red-200/50' 
+        //             : 'border-white/40 focus:ring-white/50'
+        //         } text-white placeholder-white/70 focus:outline-none focus:ring-4 transition-all duration-300`}
+        //         placeholder="VD: 0987654321"
+        //       />
+        //       {errors.phone && (
+        //         <p className="text-red-300 text-sm mt-1 font-medium">{errors.phone}</p>
+        //       )}
+        //     </div>
+
+        //     {/* Song */}
+        //     <div>
+        //       <label className="block text-white font-semibold mb-2">Bài hát yêu cầu *</label>
+        //       <input
+        //         type="text"
+        //         name="song"
+        //         value={formData.song}
+        //         onChange={handleChange}
+        //         className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
+        //           errors.song 
+        //             ? 'border-red-400 ring-4 ring-red-200/50' 
+        //             : 'border-white/40 focus:ring-white/50'
+        //         } text-white placeholder-white/70 focus:outline-none focus:ring-4 transition-all duration-300`}
+        //         placeholder="VD: Em ơi hà nội phố"
+        //       />
+        //       {errors.song && (
+        //         <p className="text-red-300 text-sm mt-1 font-medium">{errors.song}</p>
+        //       )}
+        //     </div>
+
+        //     {/* Content */}
+        //     <div>
+        //       <label className="block text-white font-semibold mb-2">Nội dung yêu cầu *</label>
+        //       <textarea
+        //         name="content"
+        //         value={formData.content}
+        //         onChange={handleChange}
+        //         rows={3}
+        //         className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
+        //           errors.content 
+        //             ? 'border-red-400 ring-4 ring-red-200/50' 
+        //             : 'border-white/40 focus:ring-white/50'
+        //         } text-white placeholder-white/70 focus:outline-none focus:ring-4 transition-all duration-300 resize-vertical`}
+        //         placeholder="Tin nhắn đặc biệt dành cho người được hát..."
+        //       />
+        //       {errors.content && (
+        //         <p className="text-red-300 text-sm mt-1 font-medium">{errors.content}</p>
+        //       )}
+        //     </div>
+
+        //     {/* Type */}
+        //     <div>
+        //       <label className="block text-white font-semibold mb-2">Loại yêu cầu *</label>
+        //       <select
+        //         name="type"
+        //         value={formData.type}
+        //         onChange={handleChange}
+        //         className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
+        //           errors.type 
+        //             ? 'border-red-400 ring-4 ring-red-200/50' 
+        //             : 'border-white/40 focus:ring-white/50'
+        //         } text-white focus:outline-none focus:ring-4 transition-all duration-300`}
+        //       >
+        //         <option value="">Chọn loại...</option>
+        //         <option value="birthday">Lên video hát mừng sinh nhật</option>
+        //         <option value="livestream">Hát trên livestream</option>
+        //       </select>
+        //       {errors.type && (
+        //         <p className="text-red-300 text-sm mt-1 font-medium">{errors.type}</p>
+        //       )}
+        //     </div>
+
+        //     {/* Conditional Fields */}
+        //     <AnimatePresence mode="wait">
+        //       {formData.type === 'birthday' && (
+        //         <motion.div
+        //           initial={{ opacity: 0, height: 0 }}
+        //           animate={{ opacity: 1, height: 'auto' }}
+        //           exit={{ opacity: 0, height: 0 }}
+        //           transition={{ duration: 0.3 }}
+        //           className="overflow-hidden"
+        //         >
+        //           <label className="block text-white font-semibold mb-2">Ngày hát sinh nhật *</label>
+        //           <input
+        //             type="date"
+        //             name="birthdayDate"
+        //             value={formData.birthdayDate}
+        //             onChange={handleChange}
+        //             className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
+        //               errors.birthdayDate 
+        //                 ? 'border-red-400 ring-4 ring-red-200/50' 
+        //                 : 'border-white/40 focus:ring-white/50'
+        //             } text-white focus:outline-none focus:ring-4 transition-all duration-300`}
+        //           />
+        //           {errors.birthdayDate && (
+        //             <p className="text-red-300 text-sm mt-1 font-medium">{errors.birthdayDate}</p>
+        //           )}
+        //         </motion.div>
+        //       )}
+        //     </AnimatePresence>
+
+        //     <AnimatePresence mode="wait">
+        //       {formData.type === 'livestream' && (
+        //         <>
+        //           <motion.div
+        //             initial={{ opacity: 0, height: 0 }}
+        //             animate={{ opacity: 1, height: 'auto' }}
+        //             exit={{ opacity: 0, height: 0 }}
+        //             transition={{ duration: 0.3 }}
+        //             className="overflow-hidden"
+        //           >
+        //             <label className="block text-white font-semibold mb-2">Ngày livestream *</label>
+        //             <input
+        //               type="date"
+        //               name="livestreamDate"
+        //               value={formData.livestreamDate}
+        //               onChange={handleChange}
+        //               className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
+        //                 errors.livestreamDate 
+        //                   ? 'border-red-400 ring-4 ring-red-200/50' 
+        //                   : 'border-white/40 focus:ring-white/50'
+        //               } text-white focus:outline-none focus:ring-4 transition-all duration-300`}
+        //             />
+        //             {errors.livestreamDate && (
+        //               <p className="text-red-300 text-sm mt-1 font-medium">{errors.livestreamDate}</p>
+        //             )}
+        //           </motion.div>
+
+        //           <motion.div
+        //             initial={{ opacity: 0, height: 0 }}
+        //             animate={{ opacity: 1, height: 'auto' }}
+        //             exit={{ opacity: 0, height: 0 }}
+        //             transition={{ duration: 0.3, delay: 0.1 }}
+        //             className="overflow-hidden"
+        //           >
+        //             <label className="block text-white font-semibold mb-2">Giờ livestream (20h-22h) *</label>
+        //             <select
+        //               name="livestreamTime"
+        //               value={formData.livestreamTime}
+        //               onChange={handleChange}
+        //               className={`w-full p-4 rounded-xl bg-white/30 backdrop-blur-md border-2 ${
+        //                 errors.livestreamTime 
+        //                   ? 'border-red-400 ring-4 ring-red-200/50' 
+        //                   : 'border-white/40 focus:ring-white/50'
+        //               } text-white focus:outline-none focus:ring-4 transition-all duration-300`}
+        //             >
+        //               <option value="">Chọn khung giờ...</option>
+        //               {timeSlots.map((time) => (
+        //                 <option key={time} value={time}>
+        //                   {time}
+        //                 </option>
+        //               ))}
+        //             </select>
+        //             {errors.livestreamTime && (
+        //               <p className="text-red-300 text-sm mt-1 font-medium">{errors.livestreamTime}</p>
+        //             )}
+        //             <p className="text-white/70 text-sm mt-1">Chỉ hát theo lịch 20:00, 20:15, 20:30, 20:45, 21:00, 21:15, 21:30, 21:45, 22:00</p>
+        //           </motion.div>
+        //         </>
+        //       )}
+        //     </AnimatePresence>
+
+        //     {/* Amount */}
+        //     <div>
+        //       <label className="block text-white font-semibold mb-2 flex items-center gap-3">
+        //         Số tiền tặng (VNĐ)
+        //         <motion.span 
+        //           key={formData.type}
+        //           initial={{ scale: 0.8, opacity: 0 }}
+        //           animate={{ scale: 1, opacity: 1 }}
+        //           className="text-sm text-yellow-300 font-bold bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-3 py-1 rounded-full shadow-lg border border-yellow-400/30"
+        //         >
+        //           {formData.type === 'birthday' ? '150k/video' : formData.type === 'livestream' ? '50k/bài' : ''}
+        //         </motion.span>
+        //       </label>
+              
+        //       {/* Thêm text động lực PHÍA DƯỚI label */}
+        //       <p className="text-yellow-200/90 text-xs lg:text-sm font-medium mb-3 italic bg-gradient-to-r from-yellow-400/10 to-pink-400/10 px-3 py-2 rounded-xl border border-yellow-300/30 shadow-md">
+        //         Ai cũng cần có công việc, không thương xin đừng buông lời cay đắng 💕
+        //       </p>
+              
+        //       <input
+        //         type="number"
+        //         name="amount"
+        //         value={formData.amount}
+        //         onChange={handleChange}
+        //         min="0"
+        //         step="1000"
+        //         className={`w-full p-5 rounded-xl bg-white/30 backdrop-blur-md border-2 text-lg font-semibold ${
+        //           errors.amount 
+        //             ? 'border-red-400 ring-4 ring-red-200/50 shadow-red-500/20' 
+        //             : 'border-white/40 focus:ring-white/50 hover:border-white/60'
+        //         } text-white placeholder-yellow-200/70 focus:outline-none focus:ring-4 transition-all duration-500 pr-12`}
+        //         placeholder={formData.type === 'birthday' ? '150000' : formData.type === 'livestream' ? '50000' : ''}
+        //       />
+              
+        //       {errors.amount && (
+        //         <motion.p 
+        //           initial={{ opacity: 0, scale: 0.9 }}
+        //           animate={{ opacity: 1, scale: 1 }}
+        //           className="text-red-300 text-sm mt-1 font-semibold bg-red-500/20 px-4 py-2 rounded-xl border border-red-400/50 shadow-lg"
+        //         >
+        //           {errors.amount}
+        //         </motion.p>
+        //       )}
+        //     </div>
+
+
+
+        //     <motion.button
+        //       type="submit"
+        //       disabled={isSubmitting}
+        //       whileHover={isSubmitting ? {} : { scale: 1.05 }}
+        //       whileTap={isSubmitting ? {} : { scale: 0.95 }}
+        //       className="w-full bg-gradient-to-r from-pink-400 to-purple-500 text-white font-bold py-6 px-8 rounded-2xl text-xl shadow-2xl hover:shadow-3xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 uppercase tracking-wide flex items-center justify-center gap-2"
+        //     >
+        //       {isSubmitting ? (
+        //         <>
+        //           <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+        //           Đang gửi...
+        //         </>
+        //       ) : (
+        //         'Gửi Yêu Cầu 🎵'
+        //       )}
+        //     </motion.button>
+        //   </form>
+        // </motion.div>
