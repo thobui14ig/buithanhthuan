@@ -1,229 +1,229 @@
 'use client';
-import { useState, type FormEvent, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+// import { useCallback, useState, type FormEvent } from 'react';
 import ProfileCard from './components/ProfileCard';
 import SupportQR from './components/SupportQR';
 
-interface FormData {
-  name: string;
-  phone: string;
-  song: string;
-  content: string;
-  type: 'birthday' | 'livestream' | '';
-  amount: string;
-  birthdayDate: string;
-  livestreamDate: string;
-  livestreamTime: string;
-}
+// interface FormData {
+//   name: string;
+//   phone: string;
+//   song: string;
+//   content: string;
+//   type: 'birthday' | 'livestream' | '';
+//   amount: string;
+//   birthdayDate: string;
+//   livestreamDate: string;
+//   livestreamTime: string;
+// }
 
-interface FormErrors {
-  name?: string;
-  phone?: string;
-  song?: string;
-  content?: string;
-  type?: string;
-  amount?: string;
-  birthdayDate?: string;
-  livestreamDate?: string;
-  livestreamTime?: string;
-}
+// interface FormErrors {
+//   name?: string;
+//   phone?: string;
+//   song?: string;
+//   content?: string;
+//   type?: string;
+//   amount?: string;
+//   birthdayDate?: string;
+//   livestreamDate?: string;
+//   livestreamTime?: string;
+// }
 
-const timeSlots = [
-  '20:00', '20:15', '20:30', '20:45',
-  '21:00', '21:15', '21:30', '21:45',
-  '22:00'
-] as const;
+// const timeSlots = [
+//   '20:00', '20:15', '20:30', '20:45',
+//   '21:00', '21:15', '21:30', '21:45',
+//   '22:00'
+// ] as const;
 
 export default function App() {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    phone: "",
-    song: '',
-    content: '',
-    type: '',
-    amount: '',
-    birthdayDate: '',
-    livestreamDate: '',
-    livestreamTime: ''
-  });
+  // const [formData, setFormData] = useState<FormData>({
+  //   name: '',
+  //   phone: "",
+  //   song: '',
+  //   content: '',
+  //   type: '',
+  //   amount: '',
+  //   birthdayDate: '',
+  //   livestreamDate: '',
+  //   livestreamTime: ''
+  // });
 
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [errors, setErrors] = useState<FormErrors>({});
+  // const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Validate phone number Việt Nam
-  const validatePhone = (phone: string): string | null => {
-    const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})\b$/;
-    if (!phone.trim()) return 'Số điện thoại là bắt buộc';
-    if (!phoneRegex.test(phone)) return 'Số điện thoại không hợp lệ (VD: 0987654321)';
-    return null;
-  };
+  // // Validate phone number Việt Nam
+  // const validatePhone = (phone: string): string | null => {
+  //   const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})\b$/;
+  //   if (!phone.trim()) return 'Số điện thoại là bắt buộc';
+  //   if (!phoneRegex.test(phone)) return 'Số điện thoại không hợp lệ (VD: 0987654321)';
+  //   return null;
+  // };
 
-  // Validate name
-  const validateName = (name: string): string | null => {
-    if (!name.trim()) return 'Tên là bắt buộc';
-    if (name.length < 2) return 'Tên phải có ít nhất 2 ký tự';
-    return null;
-  };
+  // // Validate name
+  // const validateName = (name: string): string | null => {
+  //   if (!name.trim()) return 'Tên là bắt buộc';
+  //   if (name.length < 2) return 'Tên phải có ít nhất 2 ký tự';
+  //   return null;
+  // };
 
-  // Validate song
-  const validateSong = (song: string): string | null => {
-    if (!song.trim()) return 'Tên bài hát là bắt buộc';
-    if (song.length < 2) return 'Tên bài hát phải có ít nhất 2 ký tự';
-    return null;
-  };
+  // // Validate song
+  // const validateSong = (song: string): string | null => {
+  //   if (!song.trim()) return 'Tên bài hát là bắt buộc';
+  //   if (song.length < 2) return 'Tên bài hát phải có ít nhất 2 ký tự';
+  //   return null;
+  // };
 
-  const validateForm = useCallback((): FormErrors => {
-    const newErrors: FormErrors = {};
+  // const validateForm = useCallback((): FormErrors => {
+  //   const newErrors: FormErrors = {};
 
-    // Common fields
-    const nameError = validateName(formData.name);
-    if (nameError) newErrors.name = nameError;
+  //   // Common fields
+  //   const nameError = validateName(formData.name);
+  //   if (nameError) newErrors.name = nameError;
 
-    const phoneError = validatePhone(formData.phone);
-    if (phoneError) newErrors.phone = phoneError;
+  //   const phoneError = validatePhone(formData.phone);
+  //   if (phoneError) newErrors.phone = phoneError;
 
-    const songError = validateSong(formData.song);
-    if (songError) newErrors.song = songError;
+  //   const songError = validateSong(formData.song);
+  //   if (songError) newErrors.song = songError;
 
-    if (!formData.content.trim()) newErrors.content = 'Nội dung yêu cầu là bắt buộc';
-    if (formData.type === '') newErrors.type = 'Vui lòng chọn loại yêu cầu';
+  //   if (!formData.content.trim()) newErrors.content = 'Nội dung yêu cầu là bắt buộc';
+  //   if (formData.type === '') newErrors.type = 'Vui lòng chọn loại yêu cầu';
 
-    // 🔥 LIVESTREAM: Chỉ trước 15h hôm nay
-    if (formData.type === 'livestream') {
-      const now = new Date();
-      const today15h = new Date();
-      today15h.setHours(15, 0, 0, 0); // 15:00:00 hôm nay
+  //   // 🔥 LIVESTREAM: Chỉ trước 15h hôm nay
+  //   if (formData.type === 'livestream') {
+  //     const now = new Date();
+  //     const today15h = new Date();
+  //     today15h.setHours(15, 0, 0, 0); // 15:00:00 hôm nay
       
-      const selectedDate = new Date(formData.livestreamDate);
+  //     const selectedDate = new Date(formData.livestreamDate);
       
-      if (!formData.livestreamDate) {
-        newErrors.livestreamDate = 'Ngày livestream là bắt buộc';
-      } else if (selectedDate.toDateString() === now.toDateString()) {
-        // Hôm nay: chỉ trước 15h
-        if (now >= today15h) {
-          newErrors.livestreamDate = 'Livestream hôm nay chỉ nhận trước 15h!';
-        }
-      } else if (selectedDate < now) {
-        // Ngày quá khứ
-        newErrors.livestreamDate = 'Ngày livestream phải từ hôm nay trở đi';
-      }
+  //     if (!formData.livestreamDate) {
+  //       newErrors.livestreamDate = 'Ngày livestream là bắt buộc';
+  //     } else if (selectedDate.toDateString() === now.toDateString()) {
+  //       // Hôm nay: chỉ trước 15h
+  //       if (now >= today15h) {
+  //         newErrors.livestreamDate = 'Livestream hôm nay chỉ nhận trước 15h!';
+  //       }
+  //     } else if (selectedDate < now) {
+  //       // Ngày quá khứ
+  //       newErrors.livestreamDate = 'Ngày livestream phải từ hôm nay trở đi';
+  //     }
       
-      if (!formData.livestreamTime) {
-        newErrors.livestreamTime = 'Giờ livestream là bắt buộc';
-      }
-    }
+  //     if (!formData.livestreamTime) {
+  //       newErrors.livestreamTime = 'Giờ livestream là bắt buộc';
+  //     }
+  //   }
 
-    // 🔥 BIRTHDAY: Ngày > hôm nay
-    if (formData.type === 'birthday') {
-      const today = new Date();
-      today.setHours(23, 59, 59, 999); // Cuối ngày hôm nay
+  //   // 🔥 BIRTHDAY: Ngày > hôm nay
+  //   if (formData.type === 'birthday') {
+  //     const today = new Date();
+  //     today.setHours(23, 59, 59, 999); // Cuối ngày hôm nay
       
-      const selectedDate = new Date(formData.birthdayDate);
+  //     const selectedDate = new Date(formData.birthdayDate);
       
-      if (!formData.birthdayDate) {
-        newErrors.birthdayDate = 'Ngày sinh nhật là bắt buộc';
-      } else if (selectedDate <= today) {
-        newErrors.birthdayDate = 'Ngày sinh nhật phải sau hôm nay';
-      }
-    }
+  //     if (!formData.birthdayDate) {
+  //       newErrors.birthdayDate = 'Ngày sinh nhật là bắt buộc';
+  //     } else if (selectedDate <= today) {
+  //       newErrors.birthdayDate = 'Ngày sinh nhật phải sau hôm nay';
+  //     }
+  //   }
 
-    // Amount validation
-    const amountNum = parseInt(formData.amount);
-    if (formData.amount && (isNaN(amountNum) || amountNum < 0)) {
-      newErrors.amount = 'Số tiền phải >= 0';
-    }
+  //   // Amount validation
+  //   const amountNum = parseInt(formData.amount);
+  //   if (formData.amount && (isNaN(amountNum) || amountNum < 0)) {
+  //     newErrors.amount = 'Số tiền phải >= 0';
+  //   }
 
-    console.log('✅ Validation result:', newErrors);
-    return newErrors;
-  }, [formData]);
+  //   console.log('✅ Validation result:', newErrors);
+  //   return newErrors;
+  // }, [formData]);
 
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  //   const { name, value } = e.target;
     
-    setErrors(prev => ({ ...prev, [name]: undefined }));
+  //   setErrors(prev => ({ ...prev, [name]: undefined }));
     
-    // 🔥 AUTO-FILL AMOUNT khi chọn TYPE
-    if (name === 'type' && (value === 'birthday' || value === 'livestream')) {
-      const autoAmount = value === 'birthday' ? '150000' : '50000';
-      setFormData({ 
-        ...formData, 
-        [name]: value,
-        amount: autoAmount  // Tự động điền tiền!
-      });
-      return;
-    }
+  //   // 🔥 AUTO-FILL AMOUNT khi chọn TYPE
+  //   if (name === 'type' && (value === 'birthday' || value === 'livestream')) {
+  //     const autoAmount = value === 'birthday' ? '150000' : '50000';
+  //     setFormData({ 
+  //       ...formData, 
+  //       [name]: value,
+  //       amount: autoAmount  // Tự động điền tiền!
+  //     });
+  //     return;
+  //   }
     
-    setFormData({ ...formData, [name]: value });
-  };
+  //   setFormData({ ...formData, [name]: value });
+  // };
 
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formErrors = validateForm();
+  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   const formErrors = validateForm();
     
-    // ✅ Fix: Check Object.values thay vì Object.keys
-    const hasErrors = Object.values(formErrors).some(error => error);
+  //   // ✅ Fix: Check Object.values thay vì Object.keys
+  //   const hasErrors = Object.values(formErrors).some(error => error);
     
-    console.log('Form data:', formData);
-    console.log('Form errors:', formErrors);
-    console.log('Has errors:', hasErrors);
+  //   console.log('Form data:', formData);
+  //   console.log('Form errors:', formErrors);
+  //   console.log('Has errors:', hasErrors);
     
-    if (hasErrors) {
-      setErrors(formErrors);
-      alert('Vui lòng kiểm tra lại thông tin!');
-      return;
-    }
+  //   if (hasErrors) {
+  //     setErrors(formErrors);
+  //     alert('Vui lòng kiểm tra lại thông tin!');
+  //     return;
+  //   }
 
-    setIsSubmitting(true);
-    try {
-      const submitData = {
-        name: formData.name,
-        phone: formData.phone,
-        song: formData.song,
-        content: formData.content,
-        type: formData.type as 'birthday' | 'livestream',
-        amount: formData.amount || '0',
-        ...(formData.type === 'birthday' && { birthdayDate: formData.birthdayDate }),
-        ...(formData.type === 'livestream' && { 
-          livestreamDate: formData.livestreamDate,
-          livestreamTime: formData.livestreamTime 
-        })
-      };
+  //   setIsSubmitting(true);
+  //   try {
+  //     const submitData = {
+  //       name: formData.name,
+  //       phone: formData.phone,
+  //       song: formData.song,
+  //       content: formData.content,
+  //       type: formData.type as 'birthday' | 'livestream',
+  //       amount: formData.amount || '0',
+  //       ...(formData.type === 'birthday' && { birthdayDate: formData.birthdayDate }),
+  //       ...(formData.type === 'livestream' && { 
+  //         livestreamDate: formData.livestreamDate,
+  //         livestreamTime: formData.livestreamTime 
+  //       })
+  //     };
 
       
-      const response = await fetch('https://thotool.com/api/insert-user-support', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(submitData),
-      });
+  //     const response = await fetch('https://thotool.com/api/insert-user-support', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify(submitData),
+  //     });
 
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+  //     }
 
-      alert('✅ Yêu cầu đã gửi thành công! Cảm ơn bạn!');
+  //     alert('✅ Yêu cầu đã gửi thành công! Cảm ơn bạn!');
       
-      // Reset form
-      setFormData({
-        name: '',
-        phone: "",
-        song: '',
-        content: '',
-        type: '',
-        amount: '',
-        birthdayDate: '',
-        livestreamDate: '',
-        livestreamTime: ''
-      });
-      setErrors({});
-    } catch (error: any) {
-      console.error('Submit error:', error);
-      alert(`❌ Có lỗi xảy ra: ${error.message}`);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //     // Reset form
+  //     setFormData({
+  //       name: '',
+  //       phone: "",
+  //       song: '',
+  //       content: '',
+  //       type: '',
+  //       amount: '',
+  //       birthdayDate: '',
+  //       livestreamDate: '',
+  //       livestreamTime: ''
+  //     });
+  //     setErrors({});
+  //   } catch (error: any) {
+  //     console.error('Submit error:', error);
+  //     alert(`❌ Có lỗi xảy ra: ${error.message}`);
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-600 p-6 relative">
